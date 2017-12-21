@@ -2,11 +2,12 @@ version: "3"
 
 services:
   web:
-    build: .
-    #command: nodemon --debug=5858
+    build:
+      context: .
+      dockerfile: ./docker/nodeCmdApp/Dockerfile
     command: gulp
     volumes:
-      - ./app:/code
+      - ./cmdApp:/code
     ports:
       - "8000:8000"
       - "5858:5858"
@@ -16,8 +17,10 @@ services:
       - "3001:3001"
       - "9229:9229"
 #  note-app:
-#  	build: .
-#    command: nodemon --debug=6868
+#  	build:
+#      context: .
+#      dockerfile: ./docker/nodeCmdApp
+#    command: gulp
 #    volumes:
 #      - ./app:/code
 #    ports:
