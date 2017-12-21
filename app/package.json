@@ -1,0 +1,13 @@
+{
+    "main": "app.js",
+    "dependencies": {
+        "express": "~4.14.0",
+        "express-handlebars": "~3.0.0",
+        "lodash": "~4.17.4",
+        "mysql2": "~1.5.1",
+        "yargs": "~10.0.3",
+        "gulp": "~3.9.1",
+        "gulp-nodemon": "~2.2.1",
+        "browser-sync": "~2.18.13"
+    }
+}
