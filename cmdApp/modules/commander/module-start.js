@@ -16,7 +16,8 @@ function Commander(type) {
       console.log(input.read().forEach((el) => { console.log(el)}));
       console.log(`add: ${input.add()} ,details: ${input.noteDetails()}`);
       console.log(input.read().forEach((el) => { console.log(el)}));
-      return true;
+      var json = JSON.stringify(input.read().map((el) => el));
+      return json;
     }
   , save: function (input, args) {
       console.log(`save: ${input.save()}`);

@@ -8,7 +8,8 @@ gulp.task('nodemon', function (cb) {
   var called = false;
   return nodemon({
     execMap: {
-     js: 'node --inspect-brk=0.0.0.0:9229'
+    // js: 'node --inspect-brk=0.0.0.0:9229'
+     js: 'node'
     },
     script: 'app.js',
     watch: ['app.js'],

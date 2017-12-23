@@ -6,6 +6,7 @@ const _ = require('lodash');
 const yargs = require('yargs');
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
+const bodyParser = require('body-parser');
 
 const _Notes = require('./modules/notes/module-start.js');
 const _Commander = require('./modules/commander/module-start.js');
@@ -29,37 +30,20 @@ const argv = yargs
       .help()
       .argv;
     
-const c = new _Commander.Commander(argv.command);
-
-const res = c.action(_Notes.Notes, {title: argv.title, body: argv.body});
-
-
 PORT = 8000;
 
-var LINES = [
-    "74.Hey, now, you're an All Star, get your game on, go play",
-    "Hey, now, you're a Rock Star, get the show on, get paid",
-    "And all that glitters is gold",
-    "Only shooting stars break the mold",
-];
-
-var lineIndex = 0;
-console.log("dir is %s", path.join(__dirname, '/public/'));
 var app = express();
 app.engine('html', expressHandlebars());
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '/public/'));
 app.get('/', function(req, res) {
-    var message = LINES[lineIndex];
-
-    lineIndex += 1;
-    if (lineIndex >= LINES.length) {
-        lineIndex = 0;
-    }
+  
+    const c = new _Commander.Commander(argv.command);
+    const message = c.action(_Notes.Notes, {title: argv.title, body: argv.body});
 
     res.render('index', {message: message});
 });
 
 http.Server(app).listen(PORT, function() {
-    console.log("HTTP server listening on port %s", PORT);
+    console.log("5.HTTP server listening on port %s", PORT);
 });
