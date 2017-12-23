@@ -1,5 +1,5 @@
 # nodejs-apps
-Application examples with nodejs:
+Application examples with nodejs in docker environment:
 
 Command App: 
 
@@ -9,6 +9,10 @@ Command line execution:
 - Prototypes
 - JS Strategy Pattern 
 
+- docker
+- npm
+- gulp
+- nodeamon
 
 Google App:
 
