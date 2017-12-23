@@ -32,7 +32,7 @@ const argv = yargs
     
 PORT = 8000;
 
-var app = express();
+const app = express();
 app.engine('html', expressHandlebars());
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '/public/'));
