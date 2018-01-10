@@ -16,14 +16,19 @@ const _Controller = require(path.join(__dirname, '/controllers/google/map.js'));
 
 i18n.configure({
     locales:['en', 'pl'],
-    directory: __dirname + '/locales'
+    directory: __dirname + '/locales',
+    register: global
 });
+
+i18n.setLocale('pl');
+
+
 // var getUser = (id, callback) => {
 //     var User = {
 //         id : id,
 //         name: 'Testowy User'
 //     }
-//////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 //     let myFirstPromise = new Promise((resolve, reject) => {
 //         // do something asynchronous which eventually calls either:
 //         //
@@ -50,7 +55,7 @@ i18n.configure({
 //             console.log('Handle rejected promise ('+reason+') here.');
 //         });
 // };
-
+////
 
 // getUser(1, (User) => {
 
@@ -67,6 +72,8 @@ app.engine('html', expressHandlebars());
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '/public/'));
 //app.use(express.static(path.join(__dirname, '/public/')));
+app.use(i18n.init);
+
 
 app.get('/', new _Controller.Map().getWheatherOnAddress);
 // app.get('/', function(req, res) {

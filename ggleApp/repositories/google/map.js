@@ -18,7 +18,7 @@ Map.prototype.getAddress = function (parameters, result) {
     })
     .catch(function (err) {
         // Crawling failed...
-        result(undefined, {error: 'error'});
+        result(undefined, {error: __('NoData')});
     });  
 }
 
@@ -33,7 +33,7 @@ Map.prototype.getWheather = function (parameters, result) {
     })
     .catch(function (err) {
         // Crawling failed...
-        result(undefined, {error: 'error'});
+        result(undefined, {error: __('NoData')});
     });  
 }
 
