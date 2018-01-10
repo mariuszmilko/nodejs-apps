@@ -6,6 +6,8 @@ WORKDIR /code
 # RUN npm install -g gulp-nodemon@2.2.1
 RUN npm install -g gulp
 RUN npm install -g gulp-nodemon@2.2.1
+RUN npm install -g node-gyp
+RUN npm install mongodb --save
 
 COPY ./ggleApp/package.json /code/package.json
 RUN npm install && npm ls
